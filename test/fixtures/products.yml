@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  name: MyString
+  tall_price: 9.99
+  venti_price: 9.99
+  grande_price: 9.99
+  description: MyText
+
+two:
+  type: 
+  name: MyString
+  tall_price: 9.99
+  venti_price: 9.99
+  grande_price: 9.99
+  description: MyText
