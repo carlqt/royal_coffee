@@ -14,4 +14,8 @@
 #
 
 class Product < ActiveRecord::Base
+  validates :venti_price, numericality: { greater_than_or_equal_to: 0, allow_nil: true }
+  validates :grande_price, numericality: { greater_than_or_equal_to: 0, allow_nil: true }
+  validates :tall_price, numericality: { greater_than_or_equal_to: 0, allow_nil: true }
+  enum drink_type: { coffee: 0, tea: 1 }
 end
