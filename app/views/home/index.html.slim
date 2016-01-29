@@ -6,10 +6,10 @@
           label
             | Enter the email you signed up with
           input placeholder="Email" type="email" /
-          input.pass-reset-submit.btn.btn-success.btn-sm type="submit" value="Submit" /
+          input.pass-reset-submit.btn.btn-success.btn-sm type="submit" value="Submit"
       .wrap
         p.form-title
           | Welcome Guest.
-        form.login
+        = form_tag assign_table_customer_tables_path, class: "login"
           = select_tag :table_number, options_for_select(CustomerTable.pluck(:id)), prompt: "Please select your table", class: 'form-control'
-          input.btn.btn-success.btn-sm type="submit" value=("Sign In") /
+          = submit_tag "Select", class: "btn btn-success btn-sm"

@@ -1,0 +1,15 @@
+.container
+  .row
+    .row
+      .col-md-9
+        h3
+          | Carousel Product Cart Slider
+      .col-md-3
+        /! Controls
+        .controls.pull-right.hidden-xs
+          a.left.fa.fa-chevron-left.btn.btn-success data-slide="prev" href="#carousel-example" 
+          a.right.fa.fa-chevron-right.btn.btn-success data-slide="next" href="#carousel-example" 
+    #carousel-example.carousel.slide.hidden-xs data-ride="carousel" 
+      /! Wrapper for slides
+      .carousel-inner
+        = render "product", products: @products

@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   get 'home/index'
+
+  resources :customer_tables, only: :show do
+    collection do
+      post 'assign_table'
+    end
+  end
+
   root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

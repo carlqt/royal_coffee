@@ -1,0 +1,57 @@
+.item.active
+  .row
+    - products[0..3].each do |product|
+      .col-sm-3
+        .col-item
+          .photo
+            img.img-responsive alt="a" src="http://placehold.it/350x260" /
+          .info
+            .row
+              .price.col-md-6
+                h5
+                  = product.name
+                h5.price-text-color
+                  = product.grande_price
+              .rating.hidden-sm.col-md-6
+                i.price-text-color.fa.fa-star
+                i.price-text-color.fa.fa-star
+                i.price-text-color.fa.fa-star
+                i.price-text-color.fa.fa-star
+                i.fa.fa-star
+            .separator.clear-left
+              p.btn-add
+                i.fa.fa-shopping-cart
+                a.hidden-sm href="http://www.jquery2dotnet.com"  Add to cart
+              p.btn-details
+                i.fa.fa-list
+                a.hidden-sm href="http://www.jquery2dotnet.com"  More details
+            .clearfix
+- products[4..-1].each_slice(4) do |prods|
+  .item
+    .row
+      - prods.each do |prod|
+        .col-sm-3
+          .col-item
+            .photo
+              img.img-responsive alt="a" src="http://placehold.it/350x260" /
+            .info
+              .row
+                .price.col-md-6
+                  h5
+                    = prod.name
+                  h5.price-text-color
+                    = prod.tall_price
+                .rating.hidden-sm.col-md-6
+                  i.price-text-color.fa.fa-star
+                  i.price-text-color.fa.fa-star
+                  i.price-text-color.fa.fa-star
+                  i.price-text-color.fa.fa-star
+                  i.fa.fa-star
+              .separator.clear-left
+                p.btn-add
+                  i.fa.fa-shopping-cart
+                  a.hidden-sm href="http://www.jquery2dotnet.com"  Add to cart
+                p.btn-details
+                  i.fa.fa-list
+                  a.hidden-sm href="http://www.jquery2dotnet.com"  More details
+              .clearfix
