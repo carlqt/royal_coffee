@@ -25,6 +25,11 @@ class CustomerTablesController < ApplicationController
     end
   end
 
+  def current_order
+    table = CustomerTable.find params[:id]
+    @order_items = table.table_items.unpaid
+  end
+
   private
 
   def item_params

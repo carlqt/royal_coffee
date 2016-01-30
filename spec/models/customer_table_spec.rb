@@ -44,4 +44,23 @@ describe :customer_table do
       end
     end
   end
+
+  describe ".table_items" do
+    context "when there are two or more table_order object" do
+      before do
+        product = create :product
+        table = create(:customer_table)
+        table.add_item(product_id: product.id, price: product.venti_price)
+        TableOrder.first.update_attribute :status, 1
+        table.add_item(product_id: product.id, price: product.venti_price)
+      end
+
+      it "returns all table item objects that are under an unpaid Order" do
+        table_item = TableItem.last
+        order = table_item.table_order
+        expect(order.status).to eq "unpaid"
+        expect(TableOrder.first.status).to eq "paid"
+      end
+    end
+  end
 end

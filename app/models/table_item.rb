@@ -19,7 +19,10 @@ class TableItem < ActiveRecord::Base
 
   before_create :get_attributes
   scope :from_table_order, ->(order_id) { where(table_order_id: order_id) }
+  scope :delivered, ->{ where(status: 0) }
+  scope :not_delivered, ->{ where(status: 1) }
 
+  enum status: { not_delivered: 0, delivered: 1 }
   enum drink_type: { coffee: 0, tea: 1 }
   private
 
