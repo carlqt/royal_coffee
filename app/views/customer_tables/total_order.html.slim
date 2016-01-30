@@ -1,0 +1,32 @@
+.container
+  .row
+    .well.col-xs-10.col-sm-10.col-md-6.col-xs-offset-1.col-sm-offset-1.col-md-offset-3
+      .row
+        .text-center
+          h1 Receipt
+        table.table.table-hover
+          thead
+            tr
+              th Product
+              th Qty
+              th.text-center Price
+              th.text-center Total
+          tbody
+            - TableItemDecorator.merge(@order_items).each do |product|
+              tr
+                td.col-md-9
+                  em= product.name 
+                td.col-md-1 style=("text-align: center")
+                  = product.quantity
+                td.col-md-1.text-center= number_to_currency product.price
+                td.col-md-1.text-center= number_to_currency product.total_price
+            tr
+              td  
+              td  
+              td.text-right
+                h4
+                  strong Total: 
+              td.text-center.text-danger
+                h4
+                  strong= number_to_currency @order_items.sum(:price)
+        = link_to "Order Now", confirm_order_customer_table_path(params[:id]), class: "btn btn-success btn-lg btn-block", method: :post

@@ -1,5 +1,6 @@
 class CustomerTablesController < ApplicationController
   before_action :undelivered_items, only: [:current_order, :confirm_order]
+  before_action :delivered_items, only: [:total_order]
 
   def assign_table
     redirect_to customer_table_path(params[:table_number])
@@ -20,15 +21,25 @@ class CustomerTablesController < ApplicationController
   def current_order
   end
 
+  def total_order
+  end
+
   def confirm_order
     @order_items.each(&:deliver!)
     redirect_to customer_table_path params[:id]
+  end
+
+  def pay_order
   end
 
   private
 
   def undelivered_items
     @order_items = TableItem.from_table(params[:id]).not_delivered
+  end
+
+  def delivered_items
+    @order_items = TableItem.from_table(params[:id]).delivered
   end
 
   def item_params

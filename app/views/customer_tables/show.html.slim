@@ -13,3 +13,4 @@
         = render "product", products: @products
 
     = link_to "Order Summary", current_order_customer_table_path(params[:id]), class: "btn btn-primary"
+    = link_to "Bill Summary", total_order_customer_table_path(params[:id]), class: "btn btn-primary"
