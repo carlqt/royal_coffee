@@ -11,7 +11,7 @@
                 h5
                   = prod.name
                 h5.price-text-color.price
-                  = number_to_currency(prod.grande_price)
+                  = prod.displayed_price
               .col-md-6.rating
                 = select_tag :size, options_for_select(prod.available_types), class: "size"
             .separator.clear-left
