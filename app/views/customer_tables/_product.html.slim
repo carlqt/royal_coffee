@@ -1,19 +1,19 @@
 .item.active
   .row
     - products[0..3].each do |prod|
-      .col-sm-3
+      .col-sm-3.product data-product-id=(prod.id)
         .col-item
           .photo
-            h2.text-center= prod.name
+            h2.text-center.name= prod.name
           .info
             .row
-              .price.col-md-6
+              .col-md-6
                 h5
                   = prod.name
-                h5.price-text-color
+                h5.price-text-color.price
                   = number_to_currency(prod.grande_price)
               .col-md-6.rating
-                = select_tag :size, options_for_select(prod.available_types), "data-prod-id" => prod.id
+                = select_tag :size, options_for_select(prod.available_types), class: "size"
             .separator.clear-left
               p.btn-add
                 i.fa.fa-shopping-cart
@@ -26,19 +26,19 @@
   .item
     .row
       - prods.each do |prod|
-        .col-sm-3
+        .col-sm-3.product data-product-id=(prod.id)
           .col-item
             .photo
               h2.text-center= prod.name
             .info
               .row
-                .price.col-md-6
+                .col-md-6
                   h5
                     = prod.name
                   h5.price-text-color
                     = number_to_currency(prod.tall_price)
                 .col-md-6.rating
-                  = select_tag :size, options_for_select(prod.available_types), "data-prod-id" => prod.id
+                  = select_tag :size, options_for_select(prod.available_types), class: "size"
               .separator.clear-left
                 p.btn-add
                   i.fa.fa-shopping-cart

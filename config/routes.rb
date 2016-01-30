@@ -3,9 +3,17 @@ Rails.application.routes.draw do
 
   resources :customer_tables, only: :show do
     collection do
-      post 'assign_table'
+      post :assign_table
     end
   end
+
+  resources :order_lists, only: :show do
+    member do
+      get :orders
+    end
+  end
+
+  resources :products, only: [:show]
 
   root 'home#index'
 
