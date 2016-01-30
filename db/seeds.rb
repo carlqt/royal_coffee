@@ -14,5 +14,7 @@ if Rails.env.development?
     {name: "Latte", drink_type: 0, grande_price: 6, tall_price: 3},
     {name: "Cappuccino", drink_type: 0, grande_price: 6},
     {name: "Earl Grey", drink_type: 1, venti_price: 12, grande_price: 7, tall_price: 5.40},
+    {name: "Espresso", drink_type: 0, venti_price: 12, grande_price: 7, tall_price: 5.40},
+    {name: "Mocha", drink_type: 0, venti_price: 12, grande_price: 7, tall_price: 5.00},
     ])
 end

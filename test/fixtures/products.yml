@@ -3,7 +3,7 @@
 # Table name: products
 #
 #  id           :integer          not null, primary key
-#  type         :string
+#  drink_type   :integer
 #  name         :string
 #  tall_price   :decimal(, )
 #  venti_price  :decimal(, )

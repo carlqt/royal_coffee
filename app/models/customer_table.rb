@@ -9,6 +9,19 @@
 #
 
 class CustomerTable < ActiveRecord::Base
-  has_many :order_items, through: :orders
-  has_many :orders
+  has_many :table_items, through: :table_orders
+  has_many :table_orders
+
+  def add_item(params={})
+    CustomerTable.transaction do
+      order = table_orders.find_or_create_by(customer_table_id: id, status: 0)
+      order.table_items.create(params)
+    end
+  end
+
+  private
+
+  def table_order
+    table_orders.find_by(status: 0)
+  end
 end

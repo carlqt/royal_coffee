@@ -22,20 +22,6 @@ ActiveRecord::Schema.define(version: 20160128073305) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "order_items", force: :cascade do |t|
-    t.integer  "quantity"
-    t.integer  "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.integer  "customer_table_id"
-    t.string   "order_item_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-  end
-
   create_table "products", force: :cascade do |t|
     t.integer  "drink_type"
     t.string   "name"
@@ -45,6 +31,24 @@ ActiveRecord::Schema.define(version: 20160128073305) do
     t.text     "description"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "table_items", force: :cascade do |t|
+    t.integer  "quantity"
+    t.decimal  "price"
+    t.integer  "drink_type"
+    t.integer  "table_order_id"
+    t.integer  "product_id"
+    t.integer  "status",         default: 0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "table_orders", force: :cascade do |t|
+    t.integer  "customer_table_id"
+    t.integer  "status",            default: 0
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "users", force: :cascade do |t|

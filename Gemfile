@@ -26,7 +26,6 @@ gem 'pry-rails'
 gem 'slim-rails'
 gem 'devise'
 gem 'carrierwave'
-gem 'kaminari'
 gem 'bootstrap-sass'
 
 # Use ActiveModel has_secure_password

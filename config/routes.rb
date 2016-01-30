@@ -5,13 +5,13 @@ Rails.application.routes.draw do
     collection do
       post :assign_table
     end
-  end
 
-  resources :order_lists, only: :show do
     member do
-      get :orders
+      post :add_item
     end
   end
+
+  resources :order_lists, only: :show
 
   resources :products, only: [:show]
 
