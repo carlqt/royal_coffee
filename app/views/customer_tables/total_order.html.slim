@@ -29,4 +29,4 @@
               td.text-center.text-danger
                 h4
                   strong= number_to_currency @order_items.sum(:price)
-        = link_to "Order Now", confirm_order_customer_table_path(params[:id]), class: "btn btn-success btn-lg btn-block", method: :post
+        = link_to "Pay Now", confirm_order_customer_table_path(params[:id]), class: "btn btn-success btn-lg btn-block", method: :post

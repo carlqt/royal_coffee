@@ -1,7 +1,7 @@
 class CreateOrderItems < ActiveRecord::Migration
   def change
     create_table :table_items do |t|
-      t.integer :quantity
+      t.string :size
       t.decimal :price
       t.integer :drink_type
       t.integer :table_order_id

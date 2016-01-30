@@ -19,8 +19,6 @@ class CustomerTable < ActiveRecord::Base
     end
   end
 
-  private
-
   def table_order
     table_orders.find_by(status: 0)
   end

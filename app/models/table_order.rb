@@ -13,4 +13,12 @@ class TableOrder < ActiveRecord::Base
   belongs_to :customer_table
   has_many :table_items
   enum status: { unpaid: 0, paid: 1 }
+
+  def pay!
+    TableOrder.transaction do
+      self.status = 1
+      table_items.clean!
+      save
+    end
+  end
 end

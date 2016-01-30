@@ -26,6 +26,7 @@ $(document).ready ->
 
     drink =
       price: el.find('.price').text().trim()
+      size: el.find('.size').val()
       product_id: el.data("product-id")
 
     url = "#{id}/add_item?#{$.param(drink)}"

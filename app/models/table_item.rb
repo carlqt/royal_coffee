@@ -31,6 +31,10 @@ class TableItem < ActiveRecord::Base
     self.save
   end
 
+  def self.clean!
+    not_delivered.delete_all
+  end
+
   private
 
   def get_attributes
