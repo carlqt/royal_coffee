@@ -11,7 +11,8 @@ class ProductDecorator < BaseDecorator
   end
 
   def displayed_price
-    model.send("#{available_types.first}_price")
+    price = model.send("#{available_types.first}_price")
+    "$%.2f" % price
   end
 
   def self.wrap(collection)

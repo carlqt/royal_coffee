@@ -4,6 +4,6 @@ class CustomerTablesController < ApplicationController
   end
 
   def show
-    @products = Product.all
+    @products = ProductDecorator.wrap Product.all
   end
 end

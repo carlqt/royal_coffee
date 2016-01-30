@@ -5,7 +5,7 @@
 setPrice = (drink)->
   $.getJSON("/products/#{drink.id}").done (data)->
     size = "#{drink.size.val().toLowerCase()}_price"
-    price = parseInt(data[size]).toFixed(2)
+    price = parseFloat(data[size]).toFixed(2)
     drink.price.text("$#{price}")
 
 $(document).ready ->
