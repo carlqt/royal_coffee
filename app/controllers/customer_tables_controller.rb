@@ -1,14 +1,6 @@
-# == Schema Information
-#
-# Table name: customer_tables
-#
-#  id         :integer          not null, primary key
-#  number     :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#
-
 class CustomerTablesController < ApplicationController
+  before_action :undelivered_items, only: [:current_order, :confirm_order]
+
   def assign_table
     redirect_to customer_table_path(params[:table_number])
   end
@@ -26,11 +18,18 @@ class CustomerTablesController < ApplicationController
   end
 
   def current_order
-    table = CustomerTable.find params[:id]
-    @order_items = table.table_items.unpaid
+  end
+
+  def confirm_order
+    @order_items.each(&:deliver!)
+    redirect_to customer_table_path params[:id]
   end
 
   private
+
+  def undelivered_items
+    @order_items = TableItem.from_table(params[:id]).not_delivered
+  end
 
   def item_params
     params[:price] = params[:price].gsub('$', '')

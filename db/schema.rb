@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160128073305) do
     t.integer  "drink_type"
     t.integer  "table_order_id"
     t.integer  "product_id"
+    t.string   "name"
     t.integer  "status",         default: 0
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false

@@ -21,12 +21,20 @@ class TableItem < ActiveRecord::Base
   scope :from_table_order, ->(order_id) { where(table_order_id: order_id) }
   scope :delivered, ->{ where(status: 0) }
   scope :not_delivered, ->{ where(status: 1) }
+  scope :from_table, ->(num) { where(table_order_id: num) }
 
   enum status: { not_delivered: 0, delivered: 1 }
   enum drink_type: { coffee: 0, tea: 1 }
+
+  def deliver!
+    self.status = 1
+    self.save
+  end
+
   private
 
   def get_attributes
     self.drink_type = product.drink_type
+    self.name = product.name
   end
 end

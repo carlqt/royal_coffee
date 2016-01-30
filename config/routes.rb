@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     member do
       post :add_item
       get :current_order
+      post :confirm_order
+      post :pay_order
     end
   end
 
