@@ -49,7 +49,8 @@ group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
-  gem 'poltergeist'
+  gem 'poltergeist', require: false
+  gem 'selenium-webdriver', require: false
 end
 
 group :development do
