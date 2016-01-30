@@ -18,4 +18,11 @@ class Product < ActiveRecord::Base
   validates :grande_price, numericality: { greater_than_or_equal_to: 0, allow_nil: true }
   validates :tall_price, numericality: { greater_than_or_equal_to: 0, allow_nil: true }
   enum drink_type: { coffee: 0, tea: 1 }
+
+  def available_types
+    column = []
+    column << "Venti" if venti_price
+    column << "Tall" if tall_price
+    column << "Grande" if grande_price
+  end
 end
