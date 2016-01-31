@@ -11,9 +11,12 @@
 #  description  :text
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  deleted_at   :datetime
 #
 
 class Product < ActiveRecord::Base
+  acts_as_paranoid
+
   validates :venti_price, numericality: { greater_than_or_equal_to: 0, allow_nil: true }
   validates :grande_price, numericality: { greater_than_or_equal_to: 0, allow_nil: true }
   validates :tall_price, numericality: { greater_than_or_equal_to: 0, allow_nil: true }

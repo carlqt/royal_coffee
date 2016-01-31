@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: customer_tables
+#
+#  id         :integer          not null, primary key
+#  number     :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class CustomerTablesController < ApplicationController
   before_action :undelivered_items, only: [:current_order, :confirm_order]
   before_action :customer_table, only: [:add_item, :pay_order]

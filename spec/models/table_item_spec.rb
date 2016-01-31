@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: table_items
+#
+#  id             :integer          not null, primary key
+#  size           :string
+#  price          :decimal(, )
+#  drink_type     :integer
+#  table_order_id :integer
+#  product_id     :integer
+#  name           :string
+#  status         :integer          default(0)
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
 require 'rails_helper'
 
 describe :table_item do

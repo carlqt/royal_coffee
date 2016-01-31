@@ -6,6 +6,7 @@ table.table
       th Grande
       th Venti
       th Type
+      th Action
   tbody
     - @all_products.each do |product|
       tr
@@ -14,3 +15,6 @@ table.table
         td= product.grande_price
         td= product.venti_price
         td= product.drink_type.humanize
+        td
+          = link_to 'Edit', '#', class: "btn btn-sm btn-info"
+          = link_to 'Delete', '#', class: "btn btn-sm btn-danger", method: :delete
