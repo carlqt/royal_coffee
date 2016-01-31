@@ -36,6 +36,7 @@ gem 'bootstrap-sass'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem "font-awesome-rails"
 
 gem 'paranoia'
 
