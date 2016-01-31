@@ -13,3 +13,6 @@
         = form_tag assign_table_customer_tables_path, class: "login"
           = select_tag :table_number, options_for_select(CustomerTable.pluck(:id)), prompt: "Please select your table", class: 'form-control'
           = submit_tag "Select", class: "btn btn-success btn-sm"
+          br
+          br
+          = link_to "Admin Login", admin_users_path, class: "btn btn-primary btn-sm form-control"

@@ -12,9 +12,10 @@
         span.glyphicon.glyphicon-align-justify
         | Default
     = link_to "Summary", summary_admin_users_path, class: 'btn btn-sm btn-primary pull-right'
-  - if params[:group] == 'type'
-    = render "type_view"
-  - elsif params[:group] == 'size'
-    = render "size_view"
-  - else
-    = render "default_view"
+  .well
+    - if params[:group] == 'type'
+      = render "type_view"
+    - elsif params[:group] == 'size'
+      = render "size_view"
+    - else
+      = render "default_view"
