@@ -33,3 +33,5 @@ $(document).ready ->
     url = "#{id}/add_item?#{$.param(drink)}"
     orderLink.text('Adding...')
     $.post(url)
+    return false
+
