@@ -1,6 +1,6 @@
 class CustomerTablesController < ApplicationController
   before_action :undelivered_items, only: [:current_order, :confirm_order]
-  before_action :customer_table, only: [:add_item, :pay_item]
+  before_action :customer_table, only: [:add_item, :pay_order]
 
   def assign_table
     redirect_to customer_table_path(params[:table_number])
@@ -18,6 +18,7 @@ class CustomerTablesController < ApplicationController
   end
 
   def current_order
+
   end
 
   def total_order

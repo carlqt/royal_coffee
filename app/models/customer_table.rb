@@ -20,6 +20,6 @@ class CustomerTable < ActiveRecord::Base
   end
 
   def table_order
-    table_orders.find_by(status: 0)
+    table_orders.find_by(status: 0, customer_table_id: id)
   end
 end

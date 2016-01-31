@@ -4,5 +4,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def summary
+    @orders = TableOrder.paid
   end
 end

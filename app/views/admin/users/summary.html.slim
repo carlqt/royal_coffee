@@ -1,0 +1,48 @@
+.container
+  .row
+    .well.col-xs-10.col-sm-10.col-md-6.col-xs-offset-1.col-sm-offset-1.col-md-offset-3
+      .row
+        .col-xs-6.col-sm-6.col-md-6
+          address
+            strong Elf Cafe
+            br/
+            | 2135 Sunset Blvd
+            br/
+            | Los Angeles, CA 90026
+            br/
+            abbr title="Phone"  P:
+            | (213) 484-6829
+        .col-xs-6.col-sm-6.col-md-6.text-right
+          p
+            em Date: 1st November, 2013
+          p
+            em Receipt #: 34522677W
+      .row
+        .text-center
+          h1 Total Sales
+        table.table.table-hover
+          thead
+            tr
+              th Product
+              th Qty
+              th.text-center Price
+              th.text-center Total
+          tbody
+            - TableItemDecorator.merge(@order_items).each do |product|
+              tr
+                td.col-md-9
+                  em= product.name 
+                td.col-md-1 style=("text-align: center")
+                  = product.quantity
+                td.col-md-1.text-center= number_to_currency product.price
+                td.col-md-1.text-center= number_to_currency product.total_price
+            tr
+              td  
+              td  
+              td.text-right
+                h4
+                  strong Total: 
+              td.text-center.text-danger
+                h4
+                  strong= number_to_currency @order_items.sum(:price)
+        = link_to "Pay Now", confirm_order_customer_table_path(params[:id]), class: "btn btn-success btn-lg btn-block", method: :post
