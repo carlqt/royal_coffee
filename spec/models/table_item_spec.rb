@@ -6,7 +6,7 @@ describe :table_item do
     let!(:table) { create :customer_table }
 
     before do
-      table.add_item product_id: product.id
+      table.add_item product_id: product.id, name: product.name
     end
 
     it "uses product table to fill in attributes" do
