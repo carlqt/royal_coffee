@@ -10,11 +10,15 @@ nav.navbar.navbar-default.navbar-fixed-top
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav
         li.active
-          a href="#" 
-            | Category one
-            span.sr-only (current)
-        li
-          a href="#"  Category two
+          = link_to "Admin", admin_users_path
+        li.dropdown
+          = link_to "#", class: "dropdown-toggle", "data-toggle" => "dropdown" do
+            | Customer Table
+            span.caret
+          ul.dropdown-menu
+            - CustomerTable.all.each_with_index do |val, ind|
+              li
+                = link_to ind + 1, customer_table_path(val)
       ul.nav.navbar-nav.navbar-right
         li.dropdown
           a.dropdown-toggle aria-expanded="false" data-toggle="dropdown" href="#" role="button" 
