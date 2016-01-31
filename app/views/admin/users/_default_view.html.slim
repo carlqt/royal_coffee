@@ -1,0 +1,16 @@
+table.table
+  thead
+    tr
+      th Name
+      th Tall
+      th Grande
+      th Venti
+      th Type
+  tbody
+    - @all_products.each do |product|
+      tr
+        td= product.name
+        td= product.tall_price
+        td= product.grande_price
+        td= product.venti_price
+        td= product.drink_type.humanize

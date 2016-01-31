@@ -1,0 +1,13 @@
+table.table
+  - Product.drink_types.keys.each do |type|
+    thead
+      tr
+        th.text-center
+          strong= type
+    thead
+      tr
+        th Name
+    - @all_products.by_drink_type(type).each do |product|
+      tbody
+        tr
+          td= product.name

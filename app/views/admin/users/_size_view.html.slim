@@ -1,0 +1,15 @@
+table.table
+  - Product.available_sizes.each do |size|
+    thead
+      tr
+        th.text-center
+          strong= size
+    thead
+      tr
+        th Name
+        th Price
+    - @all_products.by_size(size).each do |product|
+      tbody
+        tr
+          td= product.name
+          td= number_to_currency product.send(size)
