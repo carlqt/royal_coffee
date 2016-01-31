@@ -13,6 +13,7 @@ class CustomerTablesController < ApplicationController
   before_action :customer_table, only: [:add_item, :pay_order]
 
   def assign_table
+    return redirect_to root_path if params[:table_number].blank?
     redirect_to customer_table_path(params[:table_number])
   end
 
