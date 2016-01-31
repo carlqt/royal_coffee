@@ -63,4 +63,14 @@ describe :customer_table do
       end
     end
   end
+
+  describe ".table_order" do
+    let(:table) { create :customer_table }
+    let!(:unpaid_order) { create :table_order, customer_table: table, status: 0 }
+    let!(:paid_order) { create :table_order, customer_table: table, status: 1 }
+
+    it "returns an unpaid table_order associated with customer table" do
+      expect(table.table_order).to eq unpaid_order
+    end
+  end
 end
