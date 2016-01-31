@@ -17,4 +17,4 @@ table.table
         td= product.drink_type.humanize
         td
           = link_to 'Edit', '#', class: "btn btn-sm btn-info"
-          = link_to 'Delete', '#', class: "btn btn-sm btn-danger", method: :delete
+          = link_to 'Delete', product_path(product), class: "btn btn-sm btn-danger", method: :delete
