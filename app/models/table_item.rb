@@ -19,8 +19,6 @@ class TableItem < ActiveRecord::Base
 
   before_create :get_attributes
   scope :from_table_order, ->(order_id) { where(table_order_id: order_id) }
-  scope :delivered, ->{ where(status: 0) }
-  scope :not_delivered, ->{ where(status: 1) }
   scope :from_table, ->(num) { joins(:table_order).where("table_orders.customer_table_id = ? AND table_orders.status = '0'", num) }
 
   enum status: { not_delivered: 0, delivered: 1 }

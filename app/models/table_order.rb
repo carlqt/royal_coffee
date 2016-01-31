@@ -21,4 +21,13 @@ class TableOrder < ActiveRecord::Base
       save
     end
   end
+
+  def self.dates_of_sales
+    paid.map{ |order| order.created_at.to_date }.uniq
+  end
+
+  def self.receipt(date)
+    order_ids = TableOrder.paid.where("DATE(created_at) = ?", date).ids
+    TableItem.where(table_order_id: order_ids).delivered
+  end
 end
