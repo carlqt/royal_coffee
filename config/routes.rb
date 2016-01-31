@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   get 'home/index'
 
   namespace :admin do
-    resources :users
+    resources :users, only: [:index] do
+      get :summary, on: :collection
+    end
   end
 
   resources :customer_tables, only: :show do
