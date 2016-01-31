@@ -4,6 +4,7 @@ class ProductDecorator < BaseDecorator
     column << "venti" if venti_price
     column << "tall" if tall_price
     column << "grande" if grande_price
+    column
   end
 
   def displayed_price
