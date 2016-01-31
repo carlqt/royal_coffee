@@ -1,0 +1,26 @@
+.container
+  .well.well-sm
+    strong Group by
+    .btn-group
+      = link_to '#', class: 'btn btn-default btn-sm' do
+        span.glyphicon.glyphicon-th-list
+        | Drink Type
+      = link_to '#', class: 'btn btn-default btn-sm' do
+        span.glyphicon.glyphicon-th
+        | Size
+  table.table
+    thead
+      tr
+        th Name
+        th Tall
+        th Grande
+        th Venti
+        th Type
+    tbody
+      - @all_products.each do |product|
+        tr
+          td= product.name
+          td= product.tall_price
+          td= product.grande_price
+          td= product.venti_price
+          td= product.drink_type.humanize

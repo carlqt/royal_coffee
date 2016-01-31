@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   get 'home/index'
 
+  namespace :admin do
+    resources :users
+  end
+
   resources :customer_tables, only: :show do
     collection do
       post :assign_table
