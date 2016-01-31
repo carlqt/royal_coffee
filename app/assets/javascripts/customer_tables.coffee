@@ -23,6 +23,7 @@ $(document).ready ->
   $(".product").on "click", ".order", (e)->
     el = $(e.delegateTarget)
     id = $("#table").data("table-id")
+    orderLink = el.find('.order')
 
     drink =
       price: el.find('.price').text().trim()
@@ -30,4 +31,5 @@ $(document).ready ->
       product_id: el.data("product-id")
 
     url = "#{id}/add_item?#{$.param(drink)}"
+    orderLink.text('Adding...')
     $.post(url)
