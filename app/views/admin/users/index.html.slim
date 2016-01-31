@@ -11,7 +11,9 @@
       = link_to admin_users_path, class: 'btn btn-default btn-sm' do
         span.glyphicon.glyphicon-align-justify
         | Default
-    = link_to "Summary", summary_admin_users_path, class: 'btn btn-sm btn-primary pull-right'
+    .btn-group.pull-right
+      = link_to "Summary", summary_admin_users_path, class: 'btn btn-sm btn-primary pull-right'
+      = link_to "Add product", new_product_path, class: 'btn btn-sm btn-success pull-right'
   .well
     - if params[:group] == 'type'
       = render "type_view"

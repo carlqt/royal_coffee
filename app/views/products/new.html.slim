@@ -1,0 +1,17 @@
+.container
+  .col-md-5
+    .form-area
+      = form_for @product do |f|
+        br style="clear:both" /
+        h3 style=("margin-bottom: 25px; text-align: center;")  Contact Form
+        .form-group
+          = f.text_field :name, class: "form-control", placeholder: "Name"
+        .form-group
+          = f.number_field :tall_price, class: "form-control", placeholder: "Tall Price", step: 'any'
+        .form-group
+          = f.number_field :grande_price, class: "form-control", placeholder: "Grande Price", step: 'any'
+        .form-group
+          = f.number_field :venti_price, class: "form-control", placeholder: "Venti Price", step: 'any'
+        .form-group
+          = f.select :drink_type, options_for_select(%w(coffee tea)), {}, class: "form-control"
+        = submit_tag "Create", class: "btn btn-lg btn-primary"

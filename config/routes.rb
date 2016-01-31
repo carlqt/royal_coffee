@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   resources :order_lists, only: :show
 
-  resources :products, only: [:show]
+  resources :products
 
   root 'home#index'
 
