@@ -8,7 +8,7 @@
 
 5.times { CustomerTable.create }
 
-if Rails.env.development?
+if Rails.env.development? || Rails.env.production?
   Product.create([
     {name: "Green Tea", drink_type: 1, venti_price: 8, grande_price: 6, tall_price: 3},
     {name: "Latte", drink_type: 0, grande_price: 6, tall_price: 3},
