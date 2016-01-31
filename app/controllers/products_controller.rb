@@ -15,10 +15,10 @@
 #
 
 class ProductsController < ApplicationController
+  before_action :get_product, only: [:update, :show, :destroy, :edit]
   respond_to :html, :json
 
   def show
-    @product = Product.find(params[:id])
     respond_with @product
   end
 
@@ -35,13 +35,27 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @product.update_attributes(product_params)
+      redirect_to admin_users_path
+    else
+      render :edit
+    end
+  end
+
   def destroy
-    @product = Product.find params[:id]
     @product.destroy
     redirect_to admin_users_path
   end
 
   private
+
+  def get_product
+    @product = Product.find params[:id]
+  end
 
   def product_params
     params.require(:product).permit(:name, :venti_price, :tall_price, :drink_type, :grande_price)
