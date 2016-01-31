@@ -8,7 +8,7 @@ setPrice = (drink)->
     price = parseFloat(data[size]).toFixed(2)
     drink.price.text("$#{price}")
 
-$(document).ready ->
+ready = ->
 
   $(".product").on "change", ".size", (e)->
     el = $(e.delegateTarget)
@@ -32,6 +32,9 @@ $(document).ready ->
 
     url = "#{id}/add_item?#{$.param(drink)}"
     orderLink.text('Adding...')
+    console.log url
     $.post(url)
     return false
 
+$(document).ready(ready)
+$(document).on('page:load', ready)

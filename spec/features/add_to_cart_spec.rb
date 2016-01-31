@@ -8,7 +8,7 @@ feature 'Add to cart', js: true do
 
   example 'adds the selected product to the order summary page' do
     visit customer_table_path(table)
-    first('a', '.order').click
+    first('a', '.order', text: "Add to order").click
     click_link "Order Summary"
     expect(page).to have_content Product.first.name
   end
