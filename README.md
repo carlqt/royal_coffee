@@ -4,7 +4,7 @@ Checkout the app in heroku: https://pure-scrubland-43057.herokuapp.com/
 
 ## Scenario
 
-The app is pretty simple. The scenario is that, the app is found on every table of the coffee shop. That's the meaning of the login screen. Please bear in mind that if you don't select any number, it will just redirect you back to the root path. The user will need to select a table to sit and from there, he can order any of the available drinks.
+The app is pretty simple. The scenario is that, the app is found on every table of the coffee shop. To log in, you need to select a table number then proceed. Please bear in mind that if you don't select any number, it will just redirect you back to the root path. The user will need to select a table to sit and from there, he can order any of the available drinks.
 
 To order, just select a product then click the "Add to order" link to put the orders on an "Order Summary" screen wherein you can check your orders. If you're satisfied with them, you can click the "Order Now" button the simulate a scenario that your order has been received by the shop and has been delivered to you.
 
